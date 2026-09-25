@@ -53,7 +53,12 @@ export default class RouletteGameController {
             this.player.money = 0;
         }
         this.outputView.printGameOver(this.player.money, this.player.round);
+        return;
+    }
+
+    initGame(){
         this.player.reset();
+        this.outputView.printInitialState();
         return;
     }
 }

@@ -6,9 +6,9 @@ const stopButton = document.querySelector("#stop-button");
 const restartButton = document.querySelector("#restart-button");
 
 export default class OutputView {
-
     constructor() {
         this.result = document.querySelector("#result-content");
+        this.playerColor=document.querySelector("#color-select");
         this.currentMoney = document.querySelector("#current-money");
         this.currentRound = document.querySelector("#current-round");
     }
@@ -16,6 +16,9 @@ export default class OutputView {
     printInitialState() {
         this.currentMoney.textContent = (10000).toLocaleString();
         this.currentRound.textContent = 0;
+        this.result.textContent="";
+        betMoneyInput.value="";
+        this.playerColor.value="";
     }
 
     printWhileSpining() {
