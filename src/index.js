@@ -24,7 +24,7 @@ betButton.addEventListener("click", (event) => {
     const playerColor = playerColorInput.value;
     const betMoney = Number(betMoneyInput.value);
 
-    if (!inputValidation.isValidInput(playerColor, betMoney).isValid) {
+    if (!inputValidation.isValidInput(playerColor, betMoneyInput.value).isValid) {
         return;
     }
     rouletteGameController.play(playerColor, betMoney);
