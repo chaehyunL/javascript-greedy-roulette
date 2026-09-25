@@ -16,11 +16,14 @@ export default class RouletteGameController {
         if (!inputValidation.isValidBetMoney(betMoney, this.player.money).isValid) {
             return;
         }
+        this.player.bet(betMoney);
+        
         this.outputView.disableBetStopButtons();
         this.outputView.printWhileSpining();
+        this.outputView.printCurrnetMoneyRound(this.player.money,this.player.round);
+
         setTimeout(() => {
             const targetColor = this.roulette.spin(playerColor, betMoney);
-            this.player.bet(betMoney);
 
             if (playerColor === targetColor) {
                 this.player.win(playerColor, betMoney);

@@ -12,6 +12,7 @@ const betMoneyInput = document.querySelector("#bet-amount");
 const betButton = document.querySelector("#bet-button");
 const stopButton = document.querySelector("#stop-button");
 const restartButton = document.querySelector("#restart-button");
+const gameControlBar=document.querySelector("#game-controls");
 
 restartButton.style.display = "none";
 
@@ -23,7 +24,6 @@ betButton.addEventListener("click", (event) => {
     if (!inputValidation.isValidInput(playerColor, betMoney).isValid) {
         return;
     }
-
     rouletteGameController.play(playerColor, betMoney);
 });
 
@@ -32,20 +32,14 @@ stopButton.addEventListener("click", (event) => {
 
     rouletteGameController.endGame();
 
-    playerColorInput.style.display = "none";
-    betMoneyInput.style.display = "none";
-    betButton.style.display = "none";
-    stopButton.style.display = "none";
+    
+    gameControlBar.style.display="none";
     restartButton.style.display = "";
 });
 
 restartButton.addEventListener("click", (event) => {
     event.preventDefault();
-    playerColorInput.style.display = "";
-    betMoneyInput.style.display = "";
-
-    betButton.style.display = "";
-    stopButton.style.display = "";
+    gameControlBar.style.display="";
     restartButton.style.display = "none";
     outputView.enableBetStopButtons();
 });

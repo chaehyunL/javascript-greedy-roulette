@@ -14,22 +14,26 @@ export default class OutputView {
     }
 
     printWhileSpining() {
-        this.result.innerHTML = "룰렛 돌리는 중...";
+        this.result.innerHTML = "룰렛을 돌리는 중...";
     }
 
     printGameResult(targetColor, playerColor, betMoney, currentMoney, currentRound) {
         this.result.innerHTML =
             `룰렛 결과: ${targetColor}<br>`;
         if (playerColor === targetColor) {
-            this.result.innerHTML += `베팅 성공! + ${betMoney}원`
+            this.result.innerHTML += `베팅 성공! + ${betMoney.toLocaleString()}원`
         }
         else {
-            this.result.innerHTML += `베팅 실패! -${betMoney}원`
+            this.result.innerHTML += `베팅 실패! -${betMoney.toLocaleString()}원`
         }
-        this.currentMoney.innerHTML = `${currentMoney}`;
-        this.currentRound.innerHTML = `${currentRound}`;
+        this.currentMoney.innerHTML = `${currentMoney.toLocaleString()}`;
+        this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
     }
 
+    printCurrnetMoneyRound(currentMoney,currentRound){
+        this.currentMoney.innerHTML = `${currentMoney.toLocaleString()}`;
+        this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
+    }
     printGameOver(playerMoney, playerRound) {
         playerColorInput.style.display = "none";
         betMoneyInput.style.display = "none";
@@ -45,17 +49,17 @@ export default class OutputView {
             최종 자금: ${playerMoney}원<br>
             플레이한 라운드: ${playerRound}`;
             }, 2000);
-            this.currentMoney.innerHTML = `10000`;
+            this.currentMoney.innerHTML = '10000'.toLocaleString();
             this.currentRound.innerHTML = ` 0`;
 
             return;
         }
         this.result.innerHTML =
             `게임 종료<br>
-            최종 자금: ${playerMoney}원<br>
+            최종 자금: ${playerMoney.toLocaleString()}원<br>
             플레이한 라운드: ${playerRound}`;
 
-        this.currentMoney.innerHTML = `10000`;
+        this.currentMoney.innerHTML = `10000.`.toLocaleString();
         this.currentRound.innerHTML = ` 0`;
         return;
     }
