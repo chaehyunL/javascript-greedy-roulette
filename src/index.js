@@ -20,15 +20,11 @@ betButton.addEventListener("click", (event) => {
     const playerColor = playerColorInput.value;
     const betMoney = Number(betMoneyInput.value);
 
-    if (!inputValidation.isValidInput(playerColor,betMoney).isValid) {
+    if (!inputValidation.isValidInput(playerColor, betMoney).isValid) {
         return;
     }
 
-    
-
-    setTimeout(() => {
-        rouletteGameController.play(playerColor,betMoney);
-    }, 2000)
+    rouletteGameController.play(playerColor, betMoney);
 });
 
 stopButton.addEventListener("click", (event) => {
