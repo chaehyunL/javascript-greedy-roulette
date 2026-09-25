@@ -15,6 +15,7 @@ const restartButton = document.querySelector("#restart-button");
 const gameControlBar=document.querySelector("#game-controls");
 
 restartButton.style.display = "none";
+outputView.printInitialState();
 
 betButton.addEventListener("click", (event) => {
     event.preventDefault();

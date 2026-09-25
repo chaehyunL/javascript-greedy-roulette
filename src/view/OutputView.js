@@ -13,6 +13,11 @@ export default class OutputView {
         this.currentRound = document.querySelector("#current-round");
     }
 
+    printInitialState() {
+        this.currentMoney.textContent = (10000).toLocaleString();
+        this.currentRound.textContent = 0;
+    }
+
     printWhileSpining() {
         this.result.innerHTML = "룰렛을 돌리는 중...";
     }
@@ -30,15 +35,11 @@ export default class OutputView {
         this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
     }
 
-    printCurrnetMoneyRound(currentMoney,currentRound){
+    printCurrnetMoneyRound(currentMoney, currentRound) {
         this.currentMoney.innerHTML = `${currentMoney.toLocaleString()}`;
         this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
     }
     printGameOver(playerMoney, playerRound) {
-        playerColorInput.style.display = "none";
-        betMoneyInput.style.display = "none";
-        betButton.style.display = "none";
-        stopButton.style.display = "none";
         restartButton.style.display = "";
         if (playerMoney === 0) {
             this.result.innerHTML = `게임이 곧 종료됩니다.`;
@@ -49,8 +50,6 @@ export default class OutputView {
             최종 자금: ${playerMoney}원<br>
             플레이한 라운드: ${playerRound}`;
             }, 2000);
-            this.currentMoney.innerHTML = '10000'.toLocaleString();
-            this.currentRound.innerHTML = ` 0`;
 
             return;
         }
@@ -59,7 +58,7 @@ export default class OutputView {
             최종 자금: ${playerMoney.toLocaleString()}원<br>
             플레이한 라운드: ${playerRound}`;
 
-        this.currentMoney.innerHTML = `10000.`.toLocaleString();
+        this.currentMoney.innerHTML = (10000).toLocaleString();
         this.currentRound.innerHTML = ` 0`;
         return;
     }
