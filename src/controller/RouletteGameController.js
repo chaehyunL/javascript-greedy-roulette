@@ -1,6 +1,9 @@
 import Player from "../model/Player.js";
 import Roulette from "../model/Roulette.js";
 import OutputView from "../view/OutputView.js";
+import InputValidation from "../model/InputValidation.js";
+
+const inputValidation = new InputValidation();
 
 export default class RouletteGameController {
     constructor() {
@@ -10,24 +13,35 @@ export default class RouletteGameController {
     }
 
     play(playerColor, betMoney) {
-        const targetColor = this.roulette.spin(playerColor, betMoney);
-        this.player.bet(betMoney);
-
-        if (playerColor === targetColor) {
-            this.player.win(playerColor, betMoney);
-        }
-        else {
-            this.player.lose(betMoney);
-        }
-
-        if (this.player.money <= 0) {
-            this.endGame();
+        if (!inputValidation.isValidBetMoney(betMoney, this.player.money).isValid) {
             return;
         }
+        this.outputView.disableBetStopButtons();
+        this.outputView.printWhileSpining();
+        setTimeout(() => {
+            const targetColor = this.roulette.spin(playerColor, betMoney);
+            this.player.bet(betMoney);
 
-        this.outputView.printGameResult(
-            targetColor, playerColor, betMoney,
-            this.player.money, this.player.round);
+            if (playerColor === targetColor) {
+                this.player.win(playerColor, betMoney);
+            }
+            else {
+                this.player.lose(betMoney);
+            }
+
+            this.outputView.printGameResult(targetColor, playerColor, betMoney, this.player.money, this.player.round);
+
+            if (this.player.money <= 0) {
+                setTimeout(() => {
+                    this.endGame();
+                }, 2000);
+                return;
+            }
+
+            this.outputView.enableBetStopButtons();
+            return;
+
+        }, 2000)
 
     }
 

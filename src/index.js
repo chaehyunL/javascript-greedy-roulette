@@ -17,25 +17,18 @@ restartButton.style.display = "none";
 
 betButton.addEventListener("click", (event) => {
     event.preventDefault();
-
     const playerColor = playerColorInput.value;
     const betMoney = Number(betMoneyInput.value);
-    if (!inputValidation.isValidColor(playerColor).isValid) {
-        return;
-    }
-    if (!inputValidation.isValidbetMoney(betMoney).isValid) {
+
+    if (!inputValidation.isValidInput(playerColor,betMoney).isValid) {
         return;
     }
 
-    outputView.printWhileSpining();
-    betButton.disabled = true;
-    stopButton.disabled = true;
+    
+
     setTimeout(() => {
         rouletteGameController.play(playerColor,betMoney);
     }, 2000)
-
-    betButton.disabled = false;
-    stopButton.disabled = false;
 });
 
 stopButton.addEventListener("click", (event) => {
@@ -58,5 +51,6 @@ restartButton.addEventListener("click", (event) => {
     betButton.style.display = "";
     stopButton.style.display = "";
     restartButton.style.display = "none";
+    outputView.enableBetStopButtons();
 });
 
