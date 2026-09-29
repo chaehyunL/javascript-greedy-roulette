@@ -85,4 +85,9 @@ export default class OutputView {
         return;
     }
 
+    printError(error){
+        alert(error);
+        return;
+    }
+
 }

@@ -14,6 +14,7 @@ export default class RouletteGameController {
 
     play(playerColor, betMoney) {
         if (!inputValidation.isValidBetMoney(betMoney, this.player.money).isValid) {
+            this.outputView.printError(inputValidation.isValidBetMoney(betMoney, this.player.money).message);
             return;
         }
         this.player.bet(betMoney);
