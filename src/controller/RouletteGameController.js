@@ -17,22 +17,22 @@ export default class RouletteGameController {
             return;
         }
         this.player.bet(betMoney);
-        
+
         this.outputView.disableBetStopButtons();
         this.outputView.printWhileSpining();
-        this.outputView.printCurrnetMoneyRound(this.player.money,this.player.round);
+        this.outputView.printCurrnetMoneyRound(this.player.money, this.player.round);
 
         setTimeout(() => {
             const targetColor = this.roulette.spin(playerColor, betMoney);
-
+            let profit;
             if (playerColor === targetColor) {
-                this.player.win(playerColor, betMoney);
+                profit = this.player.win(playerColor, betMoney);
             }
             else {
-                this.player.lose(betMoney);
+                profit = this.player.lose(betMoney);
             }
 
-            this.outputView.printGameResult(targetColor, playerColor, betMoney, this.player.money, this.player.round);
+            this.outputView.printGameResult(targetColor, playerColor, profit, this.player.money, this.player.round);
 
             if (this.player.money <= 0) {
                 setTimeout(() => {
@@ -56,7 +56,7 @@ export default class RouletteGameController {
         return;
     }
 
-    initGame(){
+    initGame() {
         this.player.reset();
         this.outputView.printInitialState();
         return;

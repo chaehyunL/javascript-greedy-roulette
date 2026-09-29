@@ -26,9 +26,11 @@ export default class Player {
             dividendRate = 20;
         }
         this.money = this.money + (betMoney * dividendRate)+betMoney;
+        return betMoney*dividendRate;
     }
     lose(betMoney) {
         this.round += 1;
+        return this.betMoney;
     }
 
     reset() {
