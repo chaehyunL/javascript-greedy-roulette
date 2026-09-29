@@ -12,15 +12,16 @@ const betMoneyInput = document.querySelector("#bet-amount");
 const betButton = document.querySelector("#bet-button");
 const stopButton = document.querySelector("#stop-button");
 const restartButton = document.querySelector("#restart-button");
-const gameControlBar=document.querySelector("#game-controls");
-const resultBox=document.querySelector("#result-box");
+const gameControlBar = document.querySelector("#game-controls");
+const resultBox = document.querySelector("#result-box");
 
 restartButton.style.display = "none";
 outputView.printInitialState();
 
 betButton.addEventListener("click", (event) => {
     event.preventDefault();
-    resultBox.style.display="";
+
+    resultBox.style.display = "";
     const playerColor = playerColorInput.value;
     const betMoney = Number(betMoneyInput.value);
 
@@ -34,15 +35,13 @@ stopButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     rouletteGameController.endGame();
-
-    gameControlBar.style.display="none";
-    restartButton.style.display = "";
+    gameControlBar.style.display = "none";
 });
 
 restartButton.addEventListener("click", (event) => {
     event.preventDefault();
-    resultBox.style.display="none";
-    gameControlBar.style.display="";
+    resultBox.style.display = "none";
+    gameControlBar.style.display = "";
     restartButton.style.display = "none";
     rouletteGameController.initGame();
 });

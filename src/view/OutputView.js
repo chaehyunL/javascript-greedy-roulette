@@ -36,6 +36,9 @@ export default class OutputView {
         else {
             this.result.innerHTML += `베팅 실패! -${betMoney.toLocaleString()}원`
         }
+        if(currentMoney<=0){
+            this.result.innerHTML+='<br>게임이 곧 종료됩니다.';
+        }
         this.currentMoney.innerHTML = `${currentMoney.toLocaleString()}`;
         this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
     }
@@ -45,15 +48,14 @@ export default class OutputView {
         this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
     }
     printGameOver(playerMoney, playerRound) {
-        restartButton.style.display = "";
         if (playerMoney === 0) {
-            this.result.innerHTML = `게임이 곧 종료됩니다.`;
 
             setTimeout(() => {
                 this.result.innerHTML =
                     `게임 종료<br>
-            최종 자금: ${playerMoney}원<br>
-            플레이한 라운드: ${playerRound}`;
+                최종 자금: ${playerMoney}원<br>
+                플레이한 라운드: ${playerRound}`;
+                restartButton.style.display = "";
             }, 2000);
 
             return;
