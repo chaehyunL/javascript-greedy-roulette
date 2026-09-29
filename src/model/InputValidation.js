@@ -12,7 +12,7 @@ export default class InputValidation {
                 message:"금액을 입력해주세요"
             };
         }
-        if (!/^\d+$/.test(betMoneyInput)) {
+        if (!/^-?\d+$/.test(betMoneyInput)) {
             return {
                 isValid: false,
                 message:"숫자를 입력해주세요."
