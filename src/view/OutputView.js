@@ -19,11 +19,12 @@ export default class OutputView {
         this.result.textContent="";
         betMoneyInput.value="";
         this.playerColor.value="";
-
+        this.result.style.display="none";
         this.enableBetStopButtons();
     }
 
     printWhileSpining() {
+        this.result.style.display="";
         this.result.innerHTML = "룰렛을 돌리는 중...";
     }
 
@@ -48,6 +49,7 @@ export default class OutputView {
         this.currentRound.innerHTML = `${currentRound.toLocaleString()}`;
     }
     printGameOver(playerMoney, playerRound) {
+        this.result.style.display="";
         if (playerMoney === 0) {
 
             setTimeout(() => {
