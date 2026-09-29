@@ -65,8 +65,9 @@ export default class OutputView {
             최종 자금: ${playerMoney.toLocaleString()}원<br>
             플레이한 라운드: ${playerRound}`;
 
-        this.currentMoney.innerHTML = (10000).toLocaleString();
-        this.currentRound.innerHTML = ` 0`;
+        this.currentMoney.innerHTML = (playerMoney).toLocaleString();
+        this.currentRound.innerHTML = playerRound;
+        restartButton.style.display = "";
         return;
     }
 
