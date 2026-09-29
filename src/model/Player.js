@@ -30,7 +30,8 @@ export default class Player {
     }
     lose(betMoney) {
         this.round += 1;
-        return this.betMoney;
+
+        return betMoney;
     }
 
     reset() {

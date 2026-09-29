@@ -27,14 +27,14 @@ export default class OutputView {
         this.result.innerHTML = "룰렛을 돌리는 중...";
     }
 
-    printGameResult(targetColor, playerColor, profit, currentMoney, currentRound) {
+    printGameResult(targetColor, playerColor, moneyChange, currentMoney, currentRound) {
         this.result.innerHTML =
             `룰렛 결과: ${targetColor}<br>`;
         if (playerColor === targetColor) {
-            this.result.innerHTML += `베팅 성공! + ${profit.toLocaleString()}원`
+            this.result.innerHTML += `베팅 성공! + ${moneyChange.toLocaleString()}원`
         }
         else {
-            this.result.innerHTML += `베팅 실패! -${profit.toLocaleString()}원`
+            this.result.innerHTML += `베팅 실패! -${moneyChange.toLocaleString()}원`
         }
         if(currentMoney<=0){
             this.result.innerHTML+='<br>게임이 곧 종료됩니다.';

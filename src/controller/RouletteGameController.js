@@ -24,15 +24,15 @@ export default class RouletteGameController {
 
         setTimeout(() => {
             const targetColor = this.roulette.spin(playerColor, betMoney);
-            let profit;
+            let moneyChange;
             if (playerColor === targetColor) {
-                profit = this.player.win(playerColor, betMoney);
+                moneyChange = this.player.win(playerColor, betMoney);
             }
             else {
-                profit = this.player.lose(betMoney);
+                moneyChange = this.player.lose(betMoney);
             }
 
-            this.outputView.printGameResult(targetColor, playerColor, profit, this.player.money, this.player.round);
+            this.outputView.printGameResult(targetColor, playerColor, moneyChange, this.player.money, this.player.round);
 
             if (this.player.money <= 0) {
                 setTimeout(() => {
