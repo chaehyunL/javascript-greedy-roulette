@@ -19,6 +19,8 @@ export default class OutputView {
         this.result.textContent="";
         betMoneyInput.value="";
         this.playerColor.value="";
+
+        this.enableBetStopButtons();
     }
 
     printWhileSpining() {
