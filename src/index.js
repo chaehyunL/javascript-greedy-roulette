@@ -1,4 +1,3 @@
-import Player from "./model/Player.js";
 import RouletteGameController from "./controller/RouletteGameController.js";
 import OutputView from "./view/OutputView.js";
 import InputValidation from "./model/InputValidation.js";
