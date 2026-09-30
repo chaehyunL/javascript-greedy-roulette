@@ -25,8 +25,8 @@ export default class Player {
         else {
             dividendRate = 20;
         }
-        this.money = this.money + (betMoney * dividendRate)+betMoney;
-        return betMoney*dividendRate;
+        this.money = this.money + (betMoney * dividendRate) + betMoney;
+        return betMoney * dividendRate + betMoney;
     }
     lose(betMoney) {
         this.round += 1;
