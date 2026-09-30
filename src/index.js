@@ -11,8 +11,8 @@ const betMoneyInput = document.querySelector("#bet-amount");
 const betButton = document.querySelector("#bet-button");
 const stopButton = document.querySelector("#stop-button");
 const restartButton = document.querySelector("#restart-button");
-const gameControlBar = document.querySelector("#game-controls");
 const resultBox = document.querySelector("#result-box");
+const gameControlBar = document.querySelector("#game-controls");
 
 restartButton.style.display = "none";
 outputView.printInitialState();
@@ -35,7 +35,6 @@ stopButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     rouletteGameController.endGame();
-    gameControlBar.style.display = "none";
 });
 
 restartButton.addEventListener("click", (event) => {

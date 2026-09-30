@@ -4,6 +4,7 @@ const betMoneyInput = document.querySelector("#bet-amount");
 const betButton = document.querySelector("#bet-button");
 const stopButton = document.querySelector("#stop-button");
 const restartButton = document.querySelector("#restart-button");
+const gameControlBar = document.querySelector("#game-controls");
 
 export default class OutputView {
     constructor() {
@@ -21,6 +22,7 @@ export default class OutputView {
         this.playerColor.value="";
         this.result.style.display="none";
         this.enableBetStopButtons();
+        gameControlBar.style.display = "";
     }
 
     printWhileSpining() {
@@ -50,6 +52,7 @@ export default class OutputView {
     }
     printGameOver(playerMoney, playerRound) {
         this.result.style.display="";
+        
         if (playerMoney === 0) {
 
             setTimeout(() => {
@@ -58,6 +61,7 @@ export default class OutputView {
                 최종 자금: ${playerMoney}원<br>
                 플레이한 라운드: ${playerRound}`;
                 restartButton.style.display = "";
+                gameControlBar.style.display = "none";
             }, 2000);
 
             return;
@@ -70,6 +74,7 @@ export default class OutputView {
         this.currentMoney.innerHTML = (playerMoney).toLocaleString();
         this.currentRound.innerHTML = playerRound;
         restartButton.style.display = "";
+        gameControlBar.style.display = "none";
         return;
     }
 
