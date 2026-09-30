@@ -30,7 +30,8 @@ export default class RouletteGameController {
                 moneyChange = this.player.win(playerColor, betMoney);
             }
             else {
-                moneyChange = this.player.lose(betMoney);
+                this.player.lose(betMoney);
+                moneyChange = betMoney;
             }
 
             this.outputView.printGameResult(targetColor, playerColor, moneyChange, this.player.money, this.player.round);
